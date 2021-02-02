@@ -125,3 +125,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# For Heroku DB
+import dj_database_url
+
+db_from_env = dj_database_url.config()
+DATABASES["default"].update(db_from_env)
